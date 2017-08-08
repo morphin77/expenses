@@ -1,0 +1,32 @@
+<%= form_with(model: account_item, local: true) do |form| %>
+  <% if account_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(account_item.errors.count, "error") %> prohibited this account_item from being saved:</h2>
+
+      <ul>
+      <% account_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service %>
+    <%= form.text_field :service, id: :account_item_service %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contactor_id %>
+    <%= form.number_field :contactor_id, id: :account_item_contactor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :account_item_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

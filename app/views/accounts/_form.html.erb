@@ -1,0 +1,28 @@
+<%= form_for @account do |form| %>
+  account:
+  <%= form.label :project_id %>
+  <%= form.text_field :project_id %>
+  <ul>
+    <%= form.fields_for :account_items do |item| %>
+      <li>
+        <div class="field">
+          <%= item.label :service %>
+          <%= item.text_field :service, id: :account_item_service %>
+        </div>
+
+        <div class="field">
+          <%= item.label :contactor_id %>
+          <%= item.number_field :contactor_id, id: :account_item_contactor_id %>
+        </div>
+
+        <div class="field">
+          <%= item.label :amount %>
+          <%= item.text_field :amount, id: :account_item_amount %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

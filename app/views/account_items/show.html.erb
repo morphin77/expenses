@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @account_item.service %>
+</p>
+
+<p>
+  <strong>Contactor:</strong>
+  <%= @account_item.contactor_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @account_item.amount %>
+</p>
+
+<%= link_to 'Edit', edit_account_item_path(@account_item) %> |
+<%= link_to 'Back', account_items_path %>
