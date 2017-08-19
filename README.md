@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
-https://stackoverflow.com/questions/11478545/counting-nested-field-sets-in-a-form
+
 
 * Ruby version
 
