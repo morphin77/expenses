@@ -2,9 +2,6 @@
   <ul class="nav nav-sidebar">
     <li>
       <a href="javascript:;" data-toggle="collapse" data-target="#courses">
-        <span class="label label-primary label-as-badge pull-right">
-          <%= current_user.projects.count %>
-        </span>
         Проекты <b class="caret"></b>
       </a>
       <ul id="courses" class="collapse">
@@ -20,9 +17,6 @@
 
     <li>
       <a href="javascript:;" data-toggle="collapse" data-target="#contractors">
-        <span class="label label-primary label-as-badge pull-right">
-          <%= current_user.contractors.count %>
-        </span>
         Контрагенты <b class="caret"></b>
       </a>
       <ul id="contractors" class="collapse">
@@ -35,6 +29,6 @@
         <% end %>
       </ul>
     </li>
-    <li><a href="#"><span class="label label-primary label-as-badge pull-right">42</span>Отчеты</a></li>
+    <li><a href="#">Отчеты</a></li>
   </ul>
 </nav>

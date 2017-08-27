@@ -11,24 +11,7 @@
     </div>
     <h1>
       <%= @contractor.title %>
+      <small><%= @contractor.address %></small>
     </h1>
   </div>
 </div>
-<table class="table table-hover">
-  <tr>
-    <td>Адрес</td>
-    <td><%= @contractor.address %></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><%= @contractor.email %></td>
-  </tr>
-  <tr>
-    <td>Телефон</td>
-    <td><%= @contractor.phone %></td>
-  </tr>
-  <tr>
-    <td>Контактное лицо</td>
-    <td><%= @contractor.contact_person %></td>
-  </tr>
-</table>
