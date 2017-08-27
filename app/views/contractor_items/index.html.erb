@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contractor Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contact person name</th>
+      <th>Position</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contractor_items.each do |contractor_item| %>
+      <tr>
+        <td><%= contractor_item.contact_person_name %></td>
+        <td><%= contractor_item.position %></td>
+        <td><%= contractor_item.email %></td>
+        <td><%= contractor_item.phone %></td>
+        <td><%= contractor_item.comment %></td>
+        <td><%= link_to 'Show', contractor_item %></td>
+        <td><%= link_to 'Edit', edit_contractor_item_path(contractor_item) %></td>
+        <td><%= link_to 'Destroy', contractor_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contractor Item', new_contractor_item_path %>

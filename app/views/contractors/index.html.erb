@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <div class="container-fluid">
+    <div class="btn-group pull-right">
+      <%= link_to 'Новый', new_contractor_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    <h1>Контрагенты</h1>
+  </div>
+</div>
 
-<h1>Contractors</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Title</th>
@@ -27,7 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Contractor', new_contractor_path %>

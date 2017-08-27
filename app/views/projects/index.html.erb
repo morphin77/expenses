@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <div class="container-fluid">
+    <div class="btn-group pull-right">
+      <%= link_to 'Новый', new_project_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    <h1>Проекты</h1>
+  </div>
+</div>
 
-<h1>Projects</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,7 +22,11 @@
       <tr>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
-        <td><%= project.is_finished %></td>
+        <% if project.is_finished==true %>
+          <td>Завершен</td>
+        <% else %>
+          <td>Не завершен</td>
+        <% end %>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,7 +34,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>

@@ -11,32 +11,17 @@
     </div>
   <% end %>
   <%= form.hidden_field :user_id, id: :user_id, value: current_user.id %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :contractor_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :contractor_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :contractor_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contractor_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_personl %>
-    <%= form.text_field :contact_person, id: :contact_person %>
-  </div>
-
+  <%= form.text_field :title, id: :contractor_title, class: 'form-control', placeholder: 'Наименование контрагента' %>
+  </br>
+  <%= form.text_field :address, id: :contractor_address, class: 'form-control', placeholder: 'Адрес' %>
+  </br>
+  <%= form.phone_field :phone, id: :contractor_phone, class: 'form-control', placeholder: 'Номер телефона' %>
+  </br>
+  <%= form.email_field :email, id: :contractor_email, class: 'form-control', placeholder: 'Адрес электронной почты' %>
+  </br>
+  <%= form.text_field :contact_person, id: :contact_person, class: 'form-control', placeholder: 'Контактное лицо' %>
+  </br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Сохранить', class: 'btn btn-lg btn-primary' %>
   </div>
 <% end %>

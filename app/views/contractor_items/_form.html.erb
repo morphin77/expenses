@@ -1,0 +1,42 @@
+<%= form_with(model: contractor_item, local: true) do |form| %>
+  <% if contractor_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contractor_item.errors.count, "error") %> prohibited this contractor_item from being saved:</h2>
+
+      <ul>
+      <% contractor_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :contact_person_name %>
+    <%= form.text_field :contact_person_name, id: :contractor_item_contact_person_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position, id: :contractor_item_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :contractor_item_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :contractor_item_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :contractor_item_comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
