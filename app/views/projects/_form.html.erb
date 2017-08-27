@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :project_title %>
+  <%= form.hidden_field :user_id, id: :user_id, value: current_user.id %>
+  <%= form.text_field :title, id: :project_title, class: 'form-control', placeholder: 'Название проекта' %>
+  </br>
+  <%= form.text_area :description, id: :project_description, class: 'form-control', placeholder: 'Краткое описание проекта' %>
+  <div class="checkbox">
+    <label>
+      <%= form.check_box :is_finished, id: :project_is_finished %> Проект завершен?
+    </label>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :project_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_finished %>
-    <%= form.check_box :is_finished, id: :project_is_finished %>
-  </div>
-
+  </br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Сохранить', class: 'btn btn-lg btn-primary' %>
   </div>
 <% end %>

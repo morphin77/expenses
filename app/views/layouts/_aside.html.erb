@@ -1,7 +1,40 @@
 <nav class="col-md-2 sidebar" role="navigation">
   <ul class="nav nav-sidebar">
-    <li class="active"><a href="#"><span class="badge pull-right">42</span>Лента</a></li>
-    <li><a href="#"><span class="badge pull-right">42</span>Мои статьи</a></li>
-    <li><a href="#"><span class="label label-primary label-as-badge pull-right">42</span>Избранные материалы</a></li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#courses">
+        <span class="label label-primary label-as-badge pull-right">
+          <%= current_user.projects.count %>
+        </span>
+        Проекты <b class="caret"></b>
+      </a>
+      <ul id="courses" class="collapse">
+        <li><%= link_to 'Добавить проект', new_project_path %></li>
+        <li><%= link_to 'Ваши проекты', projects_path %></li>
+        <% if current_user.projects.any? %>
+          <% current_user.projects.each do |project| %>
+            <li><%= link_to project.title, project_path(project.id) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
+
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#contractors">
+        <span class="label label-primary label-as-badge pull-right">
+          <%= current_user.contractors.count %>
+        </span>
+        Контрагенты <b class="caret"></b>
+      </a>
+      <ul id="contractors" class="collapse">
+        <li><%= link_to 'Добавить контрагента', new_contractor_path %></li>
+        <li><%= link_to 'Ваши контрагенты', contractors_path %></li>
+        <% if current_user.contractors.any? %>
+          <% current_user.contractors.each do |contractor| %>
+            <li><%= link_to contractor.title, contractor_path(contractor.id) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
+    <li><a href="#"><span class="label label-primary label-as-badge pull-right">42</span>Отчеты</a></li>
   </ul>
 </nav>

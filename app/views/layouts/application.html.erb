@@ -14,7 +14,9 @@
       <% if user_signed_in? %>
         <%= render 'layouts/aside' %>
         <div class="col-md-10 col-md-offset-2 main">
-          <%= yield %>
+          <div class="container-fluid">
+            <%= yield %>
+          </div>
         </div>
       <% else %>
         <div class="col-md-10 col-md-offset-1 main">
