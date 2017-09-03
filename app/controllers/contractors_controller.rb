@@ -15,6 +15,7 @@ class ContractorsController < ApplicationController
   # GET /contractors/new
   def new
     @contractor = Contractor.new
+    @contractor.contractor_items.new
   end
 
   # GET /contractors/1/edit
@@ -69,6 +70,6 @@ class ContractorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractor_params
-      params.require(:contractor).permit(:title, :address, :user_id)
+      params.require(:contractor).permit(:title, :address, :user_id, contractor_items_attributes: [:contact_person_name, :position, :email, :phone, :comment])
     end
 end

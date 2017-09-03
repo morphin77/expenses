@@ -15,3 +15,23 @@
     </h1>
   </div>
 </div>
+<table class="table table-hover">
+  <tr>
+    <th>Контактное лицо</th>
+    <th>Должность</th>
+    <th>Адрес эл. почты</th>
+    <th>Номер телефона</th>
+    <th>Комментарий</th>
+    <th></th>
+  </tr>
+  <% for item in @contractor.contractor_items  %>
+  <tr>
+    <td><%= item.contact_person_name %></td>
+    <td><%= item.position %></td>
+    <td><%= item.email %></td>
+    <td><%= item.phone %></td>
+    <td><%= item.comment %></td>
+    <td><td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Вы Уверены что хотите удалить этот объект?' } %></td></td>
+  </tr>
+  <% end %>
+</table

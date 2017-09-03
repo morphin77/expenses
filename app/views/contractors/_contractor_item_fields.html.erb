@@ -1,0 +1,10 @@
+<table class="table">
+  <tr>
+    <td><%= f.text_field :contact_person_name, id: :contractor_item_contact_person_name, class: 'form-control', placeholder: 'Контактное лицо' %></td>
+    <td><%= f.text_field :position, id: :contractor_item_position, class: 'form-control', placeholder: 'Должность' %></td>
+    <td><%= f.email_field :email, id: :contractor_item_email, class: 'form-control', placeholder: 'Адрес эл. почты' %></td>
+    <td><%= f.phone_field :phone, id: :contractor_item_phone, class: 'form-control', placeholder: 'Номер телефона' %></td>
+    <td><%= f.text_area :comment, id: :contractor_item_comment, class: 'form-control', placeholder: 'Комментарий' %></td>
+    <td><%= f.link_to_remove "remove" %></td>
+  </tr>
+</table>

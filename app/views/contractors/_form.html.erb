@@ -1,4 +1,4 @@
-<%= form_with(model: contractor, local: true) do |form| %>
+<%= nested_form_for @contractor do |f| %>
   <% if contractor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contractor.errors.count, "error") %> prohibited this contractor from being saved:</h2>
@@ -10,12 +10,14 @@
       </ul>
     </div>
   <% end %>
-  <%= form.hidden_field :user_id, id: :user_id, value: current_user.id %>
-  <%= form.text_field :title, id: :contractor_title, class: 'form-control', placeholder: 'Наименование контрагента' %>
+  <%= f.hidden_field :user_id, id: :user_id, value: current_user.id %>
+  <%= f.text_field :title, id: :contractor_title, class: 'form-control', placeholder: 'Наименование контрагента' %>
   </br>
-  <%= form.text_field :address, id: :contractor_address, class: 'form-control', placeholder: 'Адрес' %>
+  <%= f.text_field :address, id: :contractor_address, class: 'form-control', placeholder: 'Адрес' %>
   </br>
+  <%= f.fields_for :contractor_items %>
+  <p><%= f.link_to_add "Add a item", :contractor_items %></p>
   <div class="actions">
-    <%= form.submit 'Сохранить', class: 'btn btn-lg btn-primary' %>
+    <%= f.submit 'Сохранить', class: 'btn btn-lg btn-primary' %>
   </div>
 <% end %>
