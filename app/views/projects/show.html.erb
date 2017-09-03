@@ -7,12 +7,13 @@
       </button>
       <ul class="dropdown-menu">
         <li><%= link_to 'Настройки', edit_project_path(@project) %></li>
+        <li><%= link_to 'Добавить новую запись', new_account_path(:project_id=>@project.id) %></li>
       </ul>
     </div>
     <h1>
       <%= @project.title %>
       <small>
-        <%= @project.description %>
+        <%= @project.description %>, общая сумма: <span class="label label-success"><%= @sum %></span>
       </small>
     </h1>
     <% if @project.is_finished == true %>
@@ -22,3 +23,19 @@
     <% end %>
   </div>
 </div>
+<table class="table table-hover">
+  <tr>
+    <th>Контрагент</th>
+    <th>Услуга</th>
+    <th>Сумма</th>
+    <th>Дата оплаты</th>
+  </tr>
+    <% for item in @account_items %>
+      <tr>
+        <td><%= item.contractor.title %></td>
+        <td><%= item.service %></td>
+        <td><%= item.amount %></td>
+        <td><%= item.date %></td>
+      </tr>
+    <% end %>
+</table

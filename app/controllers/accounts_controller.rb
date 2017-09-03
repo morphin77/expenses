@@ -14,8 +14,9 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
-    2.times { @account.account_items.build }
+    @contractors=Contractor.where(["user_id = ?", current_user.id])
+    @project=Project.find(params[:project_id])
+    @account = @project.accounts.new
   end
 
   # GET /accounts/1/edit
@@ -70,6 +71,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:project_id, account_items_attributes: [:service, :contactor_id, :amount, :account_id])
+      params.require(:account).permit(:project_id, account_items_attributes: [:service, :contactor_id, :amount, :account_id, :date])
     end
 end
