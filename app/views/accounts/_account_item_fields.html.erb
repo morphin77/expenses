@@ -7,6 +7,18 @@
       <% end %>
     <% end %>
     <%= f.text_field :amount, id: :account_item_amount, class: 'form-control col-sm-3', placeholder: 'Стоимость' %>
-    <%= f.date_select :date, id: :account_item_date, class: 'form-control' %>
+    <div class='input-group date datetimepicker'>
+      <%= f.text_field :date, id: :account_item_date, class: 'form-control col-sm-3' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
+
+  <script type="text/javascript">
+    $(function () {
+      $('.datetimepicker').datetimepicker();
+    });
+  </script>
+
 </form>
