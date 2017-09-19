@@ -10,25 +10,25 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Is finished</th>
-      <th colspan="3"></th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Завершен?</th>
+      <th>Затраченная сумма</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% current_user.projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
+        <td title="This is Title"><%= link_to project.title, project %></td>
         <td><%= project.description %></td>
         <% if project.is_finished==true %>
           <td>Завершен</td>
         <% else %>
           <td>Не завершен</td>
         <% end %>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= project.account_items.sum(:amount) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

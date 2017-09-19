@@ -14,9 +14,13 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @contractors=Contractor.where(["user_id = ?", current_user.id])
+    @contractors=current_user.contractors
     @project=Project.find(params[:project_id])
     @account = @project.accounts.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /accounts/1/edit
@@ -25,19 +29,21 @@ class AccountsController < ApplicationController
 
   # POST /accounts
   # POST /accounts.json
+
   def create
     @account = Account.new(account_params)
-
+    @contractors=current_user.contractors
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
+        format.html { redirect_to @account.project, notice: 'Account was successfully created.' }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   # PATCH/PUT /accounts/1
   # PATCH/PUT /accounts/1.json
@@ -71,6 +77,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:project_id, account_items_attributes: [:service, :contactor_id, :amount, :account_id, :date])
+      params.require(:account).permit(:project_id, account_items_attributes: [:service, :contractor_id, :amount, :account_id, :date])
     end
 end

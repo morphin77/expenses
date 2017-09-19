@@ -1,9 +1,12 @@
-<%= f.text_field :service, id: :account_item_service, class: 'form-control', placeholder: 'Услуга' %>
-<%= f.select :contractor_id, {}, {prompt: 'Контрагент'}, {class: 'form-control'} do %>
-  <% @contractors.each do |contractor| -%>
-    <%= content_tag(:option, contractor.title, value: contractor.id) %>
-  <% end %>
-<% end %>
-<%= f.text_field :amount, id: :account_item_amount, class: 'form-control', placeholder: 'Стоимость' %>
-<%= f.label "Дата оплаты" %>
-<%= f.date_select :date, id: :account_item_date, class: 'form-control' %>
+<form class="form-inline">
+  <div class="form-group">
+    <%= f.text_field :service, id: :account_item_service, class: 'form-control col-sm-3', placeholder: 'Услуга' %>
+    <%= f.select :contractor_id, {}, {prompt: 'Контрагент'}, {class: 'form-control col-sm-3'} do %>
+      <% @contractors.each do |contractor| -%>
+        <%= content_tag(:option, contractor.title, value: contractor.id) %>
+      <% end %>
+    <% end %>
+    <%= f.text_field :amount, id: :account_item_amount, class: 'form-control col-sm-3', placeholder: 'Стоимость' %>
+    <%= f.date_select :date, id: :account_item_date, class: 'form-control' %>
+  </div>
+</form>

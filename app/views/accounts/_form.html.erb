@@ -1,6 +1,18 @@
 <%= nested_form_for @account do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account_item from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.hidden_field :project_id %>
   <%= f.fields_for :account_items %>
+  <p><%= f.link_to_add "Add a item", :account_items %></p>
   <div class="actions">
     <%= f.submit %>
   </div>

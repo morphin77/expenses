@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @account_items=@project.account_items
-    @sum=@account_items.sum("amount")
+    @sum=@account_items.sum(:amount)
   end
 
   # GET /projects/new

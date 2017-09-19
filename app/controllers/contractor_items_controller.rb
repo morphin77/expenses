@@ -69,6 +69,6 @@ class ContractorItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contractor_item_params
-      params.require(:contractor_item).permit(:contact_person_name, :position, :email, :phone, :comment)
+      params.require(:contractor_item).permit(:contact_person_name, :position, :email, :phone, :comment, :contractor_id)
     end
 end

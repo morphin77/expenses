@@ -15,6 +15,7 @@ class AccountItemsController < ApplicationController
   # GET /account_items/new
   def new
     @account_item = AccountItem.new
+    @contractors = current_user.contractors
   end
 
   # GET /account_items/1/edit
@@ -69,6 +70,6 @@ class AccountItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_item_params
-      params.require(:account_item).permit(:service, :contactor_id, :amount, :account_id)
+      params.require(:account_item).permit(:service, :contractor_id, :amount, :account_id)
     end
 end

@@ -29,7 +29,7 @@ class ContractorsController < ApplicationController
 
     respond_to do |format|
       if @contractor.save
-        format.html { redirect_to @contractor, notice: 'Contractor was successfully created.' }
+        format.html { redirect_to contractors_path, notice: 'Contractor was successfully created.' }
         format.json { render :show, status: :created, location: @contractor }
       else
         format.html { render :new }

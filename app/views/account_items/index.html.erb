@@ -16,7 +16,7 @@
     <% @account_items.each do |account_item| %>
       <tr>
         <td><%= account_item.service %></td>
-        <td><%= account_item.contactor_id %></td>
+        <td><%= account_item.contractor_id %></td>
         <td><%= account_item.amount %></td>
         <td><%= link_to 'Show', account_item %></td>
         <td><%= link_to 'Edit', edit_account_item_path(account_item) %></td>
